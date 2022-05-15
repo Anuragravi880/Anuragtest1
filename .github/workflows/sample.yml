@@ -8,20 +8,24 @@ jobs:
  ubuntu:
   runs-on: ubuntu-latest
   steps:
-  - run: date
+  - name: Step one
+    run: date
   
  windows:
-  runs-on: window-latest
+  runs-on: windows-latest
   steps:
-  - run: date      
+  - name: Step one
+    run: date      
 
  mac:
   runs-on: macos-latest
   steps:
-  - run: date
+  - name: Step one
+    run: date
   
  overall:
   needs: [ubuntu, windows, mac]
   runs-on: ubuntu-latest
   steps:
-  - run: date
+  - name: Step one
+    run: date
