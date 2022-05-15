@@ -32,6 +32,6 @@ jobs:
     needs: [Ubuntu, Window, macos]
     run-on: macos-latest
     steps:
-      -name: step1
+      -name: step one
       -run: date
       
