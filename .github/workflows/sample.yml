@@ -9,7 +9,9 @@ jobs:
   runs-on: ubuntu-latest
   steps:
   - name: Step one
-    run: date
+    run: |
+        ls -ltr
+        java -version
   
  windows:
   runs-on: windows-latest
