@@ -1,0 +1,29 @@
+name: test2
+
+env:
+  WORKSPACE_ENVIRONMENTAL_VARIABLE: Artifacts_Variable
+
+on:
+  push: 
+    branches: test2
+    
+job:
+  job1:
+    name: Artifacts
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Branch
+      uses: actions/checkout@v1
+      
+    - name: Upload Artifact in linux
+      uses: actions/upload-artifact@v1.0.0
+      
+  job2:
+    name: Result
+    runs-on: ubuntu-latest
+    needs: [Artifacts]
+    steps:
+    - name: Step one
+      run: echo All Jobs are successfull
+    
+    
