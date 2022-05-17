@@ -5,29 +5,25 @@ on:
     branches: python_sample
 
 jobs:
- ubuntu:
-  runs-on: ubuntu-latest
-  steps:
-  - name: Step one
-    run: |
-        ls -ltr
-        java -version
-  
- windows:
-  runs-on: windows-latest
-  steps:
-  - name: Step one
-    run: date      
-
- mac:
-  runs-on: macos-latest
-  steps:
-  - name: Step one
-    run: date
-  
- overall:
-  needs: [ubuntu, windows, mac]
-  runs-on: ubuntu-latest
-  steps:
-  - name: Step one
-    run: date
+  Test:
+   name: Checkout
+   runs-on: ubuntu-latest
+   steps:
+   - name: checkout
+     uses: actions/checkout@v2
+    
+   - name: running script
+     run: |
+         ls -l
+         python3 sample2.py
+        
+  Build:
+   name: Artifacts
+   runs-on: ubuntu-latest
+   steps:
+   - name: Upload Artifact
+     uses: actions/upload-artifact@v2
+     with:
+       name: Arr
+       path: .
+        
