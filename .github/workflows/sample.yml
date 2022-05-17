@@ -6,19 +6,17 @@ on:
 
 jobs:
   Test:
-   name: Checkout
    runs-on: ubuntu-latest
    steps:
-   - name: checkout
-     uses: actions/checkout@v2
-    
-   - name: running script
-     run: |
+   - name: Checkout and run
+   - uses: actions/checkout@v2
+   - run: |
          ls -l
          python3 sample2.py
         
   Build:
    name: Artifacts
+   needs: [Test]
    runs-on: ubuntu-latest
    steps:
    - name: Upload Artifact
