@@ -13,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Branch
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
       
     - name: Upload Artifact in linux
-      uses: actions/upload-artifact@v1.0.0
+      uses: actions/upload-artifact@v2
+      with: 
+        name: ${{ env.WORKSPACE_ENVIRONMENTAL_VARIABLE }}
+        path: .
       
   job2:
     name: Result
